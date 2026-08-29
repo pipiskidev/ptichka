@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Птичка - фотоцентр в Сочи. Фото на документы, печать, подарки</title>
+<meta name="description" content="Фотоцентр и копицентр в центре Сочи. Три точки: Курортный проспект, улица Роз, улица Горького. Фото на документы за 500 рублей, печать, сувениры. 74 услуг с ценами.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bum: #faf8f5;      /* бумага */
+    --chern: #14120f;
+    --tuskl: #6f6659;
+    --krasn: #cf3a25;    /* красный с их вывески и логотипа */
+    --kart: #fff;
+    --lin: #e6dfd4;
+    --r: 14px;
+    --shag: clamp(56px, 9vw, 128px);
+    --pole: clamp(20px, 5vw, 56px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bum:#12100d; --chern:#f4f1ea; --tuskl:#a49a8b;
+      --kart:#1b1814; --lin:#2e2921; --krasn:#f0603f; }
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--bum); color:var(--chern);
+    font:400 17px/1.65 Manrope, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing:antialiased; }
+  .ob { max-width:1180px; margin:0 auto; padding:0 var(--pole); }
+  a { color:inherit; }
+  img { max-width:100%; display:block; }
+
+  /* ---- шапка ---- */
+  header { position:sticky; top:0; z-index:20;
+    background:color-mix(in srgb, var(--bum) 88%, transparent);
+    backdrop-filter:blur(14px); border-bottom:1px solid var(--lin); }
+  .shapka { display:flex; align-items:center; gap:24px; padding:16px 0; }
+  .znak { display:flex; align-items:center; gap:10px; font-weight:800;
+    font-size:20px; letter-spacing:-.03em; text-decoration:none; }
+  .ptica { width:30px; height:30px; border-radius:50%; background:var(--krasn);
+    display:grid; place-items:center; color:#fff; font-size:15px; }
+  .shapka .tel { margin-left:auto; font-weight:700; text-decoration:none;
+    white-space:nowrap; }
+  .wa { padding:9px 16px; border-radius:99px; background:var(--krasn);
+    color:#fff; text-decoration:none; font-weight:700; font-size:15px; }
+
+  /* ---- первый экран ---- */
+  .geroy { position:relative; margin-top:0; }
+  .geroy-foto { width:100%; height:clamp(340px,58vh,600px); object-fit:cover;
+    filter:brightness(.52); }
+  .geroy-tekst { position:absolute; inset:0; display:flex; align-items:flex-end; }
+  .geroy-tekst .ob { width:100%; padding-bottom:clamp(32px,6vw,72px); }
+  .geroy h1 { margin:0 0 18px; color:#fff; letter-spacing:-.035em;
+    font-weight:800; font-size:clamp(34px,6.4vw,74px); line-height:1.02;
+    max-width:16ch; text-wrap:balance; }
+  .geroy p { margin:0 0 28px; color:rgba(255,255,255,.9);
+    font-size:clamp(17px,2vw,21px); max-width:44ch; }
+  .knopki { display:flex; gap:12px; flex-wrap:wrap; }
+  .kn { padding:15px 26px; border-radius:99px; text-decoration:none;
+    font-weight:700; font-size:16px; }
+  .kn-gl { background:var(--krasn); color:#fff; }
+  .kn-vt { background:rgba(255,255,255,.14); color:#fff;
+    border:1px solid rgba(255,255,255,.3); backdrop-filter:blur(6px); }
+
+  /* ---- цены крупно ---- */
+  .cifry { display:grid; gap:1px; background:var(--lin);
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    border-top:1px solid var(--lin); border-bottom:1px solid var(--lin); }
+  .cifra { background:var(--bum); padding:clamp(24px,3.4vw,40px) var(--pole); }
+  .cifra b { display:block; font-size:clamp(30px,4vw,46px); font-weight:800;
+    letter-spacing:-.04em; color:var(--krasn); line-height:1; }
+  .cifra span { display:block; margin-top:8px; font-weight:600; }
+  .cifra i { display:block; font-style:normal; color:var(--tuskl); font-size:14px; }
+
+  section { padding:var(--shag) 0; }
+  h2 { margin:0 0 14px; font-weight:800; letter-spacing:-.03em;
+    font-size:clamp(28px,3.8vw,46px); line-height:1.08; text-wrap:balance; }
+  .pod { margin:0 0 clamp(28px,4vw,48px); color:var(--tuskl);
+    font-size:clamp(16px,1.7vw,19px); max-width:56ch; }
+
+  /* ---- точки ---- */
+  .tochki { display:grid; gap:14px;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+  .tochka { background:var(--kart); border:1px solid var(--lin);
+    border-radius:var(--r); padding:28px; }
+  .tochka b { display:block; font-size:19px; letter-spacing:-.02em; }
+  .tochka i { display:block; font-style:normal; color:var(--tuskl);
+    font-size:14px; margin:6px 0 20px; }
+  .tochka a { font-weight:700; color:var(--krasn); text-decoration:none;
+    font-size:15px; }
+
+  /* ---- работы ---- */
+  .raboty { display:grid; gap:14px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+  .rab { position:relative; border-radius:var(--r); overflow:hidden;
+    background:var(--kart); border:1px solid var(--lin); }
+  .rab img { width:100%; aspect-ratio:4/3; object-fit:cover; }
+  .rab .txt { padding:18px 20px 20px; }
+  .rab .txt b { display:block; font-size:17px; letter-spacing:-.01em; }
+  .rab .txt i { display:block; font-style:normal; color:var(--tuskl);
+    font-size:14px; margin-top:3px; }
+  .rab .cena { position:absolute; top:14px; right:14px; background:var(--krasn);
+    color:#fff; font-weight:700; font-size:15px; padding:7px 13px;
+    border-radius:99px; }
+  .rab.shire { grid-column:span 2; }
+  @media (max-width:640px) { .rab.shire { grid-column:span 1; } }
+
+  /* ---- прайс ---- */
+  .poisk { width:100%; padding:16px 20px; border-radius:var(--r);
+    border:1px solid var(--lin); background:var(--kart); color:var(--chern);
+    font:inherit; font-size:16px; margin-bottom:22px; }
+  .poisk::placeholder { color:var(--tuskl); }
+  .grupp { background:var(--kart); border:1px solid var(--lin);
+    border-radius:var(--r); margin-bottom:10px; overflow:hidden; }
+  .grupp > h3 { margin:0; }
+  .grupp button { width:100%; text-align:left; background:none; border:0;
+    padding:18px 22px; font:inherit; font-weight:700; font-size:17px;
+    color:inherit; cursor:pointer; display:flex; align-items:center; gap:12px;
+    letter-spacing:-.01em; }
+  .grupp button .vilka { margin-left:auto; color:var(--tuskl);
+    font-weight:500; font-size:15px; white-space:nowrap; }
+  .poz { padding:0 22px 16px; }
+  .str { display:flex; justify-content:space-between; gap:18px;
+    padding:11px 0; border-top:1px solid var(--lin); font-size:16px; }
+  .str .c { font-weight:700; white-space:nowrap; }
+  .str .prim { color:var(--tuskl); font-weight:400; }
+
+  footer { border-top:1px solid var(--lin); padding:var(--shag) 0 64px;
+    color:var(--tuskl); font-size:15px; }
+  footer .ryad { display:grid; gap:32px;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+  footer b { color:var(--chern); display:block; margin-bottom:10px; }
+  footer a { text-decoration:none; }
+
+  .snizu { position:fixed; left:0; right:0; bottom:0; z-index:30;
+    display:none; gap:10px; padding:10px var(--pole) calc(10px + env(safe-area-inset-bottom));
+    background:color-mix(in srgb, var(--bum) 94%, transparent);
+    backdrop-filter:blur(12px); border-top:1px solid var(--lin); }
+  .snizu a { flex:1; text-align:center; padding:14px; border-radius:99px;
+    text-decoration:none; font-weight:700; }
+  @media (max-width:720px) {
+    .snizu { display:flex; }
+    body { padding-bottom:78px; }
+    .shapka .wa { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header><div class="ob shapka">
+  <a class="znak" href="#"><span class="ptica">&#9679;</span>Птичка</a>
+  <a class="tel" href="tel:+79882367036">+7 988 236-70-36</a>
+  <a class="wa" href="https://wa.me/79882367036">Написать</a>
+</div></header>
+
+<div class="geroy">
+  <img class="geroy-foto" src="https://avatars.mds.yandex.net/get-altay/10993309/2a0000018df76a12fb419b390bbfea122bc3/XXL" alt="Фотоцентр Птичка в Сочи, вывеска">
+  <div class="geroy-tekst"><div class="ob">
+    <h1>Фото на документы, печать и подарки</h1>
+    <p>Три точки в центре Сочи. Документы делаем при вас, копии и печать - пока ждете.</p>
+    <div class="knopki">
+      <a class="kn kn-gl" href="https://wa.me/79882367036">Написать в WhatsApp</a>
+      <a class="kn kn-vt" href="tel:+79882367036">Позвонить</a>
+    </div>
+  </div></div>
+</div>
+
+<div class="cifry">
+  <div class="cifra">
+    <b>500 &#8381;</b>
+    <span>Фото на документы</span>
+    <i>4 штуки</i>
+  </div>
+  <div class="cifra">
+    <b>40 &#8381;</b>
+    <span>Печать фото</span>
+    <i>снимок 10x15</i>
+  </div>
+  <div class="cifra">
+    <b>20 &#8381;</b>
+    <span>Копия и печать</span>
+    <i>лист А4</i>
+  </div>
+  <div class="cifra">
+    <b>3 &#8381;</b>
+    <span>Визитки</span>
+    <i>100 штук, за час</i>
+  </div>
+</div>
+
+<section id="tochki"><div class="ob">
+  <h2>Три точки в центре</h2>
+  <p class="pod">Заходите в любую - услуги и цены одинаковые. Рейтинг 4,9 на Яндекс Картах.</p>
+  <div class="tochki">
+    <div class="tochka">
+      <b>Курортный проспект, 75Б</b>
+      <i>Центральный район</i>
+      <a href="https://yandex.ru/maps/?rtext=~Сочи,%20Курортный%20проспект,%2075Б">Проложить маршрут</a>
+    </div>
+    <div class="tochka">
+      <b>улица Роз, 78</b>
+      <i>микрорайон Центральный</i>
+      <a href="https://yandex.ru/maps/?rtext=~Сочи,%20улица%20Роз,%2078">Проложить маршрут</a>
+    </div>
+    <div class="tochka">
+      <b>улица Горького, 56А</b>
+      <i>Центральный район</i>
+      <a href="https://yandex.ru/maps/?rtext=~Сочи,%20улица%20Горького,%2056А">Проложить маршрут</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="raboty"><div class="ob">
+  <h2>Что мы делаем</h2>
+  <p class="pod">Снимки из наших залов и витрин. Цены на снимках - наши настоящие.</p>
+  <div class="raboty">
+    <figure class="rab shire" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/12548008/2a000001906dbadaaaa3a15f2bc072a10d59/XXL" alt="Печать на подушке" loading="lazy"><span class="cena">1 500 &#8381;</span>
+      <figcaption class="txt"><b>Печать на подушке</b><i>Подушка 30x30</i></figcaption>
+    </figure>
+    <figure class="rab" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/11409713/2a0000018ec80fb1aae1d2bc193f8e026943/XXL" alt="Печать на футболке" loading="lazy"><span class="cena">1 500 &#8381;</span>
+      <figcaption class="txt"><b>Печать на футболке</b><i>На нашей футболке, формат А4</i></figcaption>
+    </figure>
+    <figure class="rab" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/10328405/2a0000018ec810430f7dcdb946448e94f00a/XXL" alt="Печать на кружках" loading="lazy"><span class="cena">650 &#8381;</span>
+      <figcaption class="txt"><b>Печать на кружках</b><i>Кружка белая</i></figcaption>
+    </figure>
+    <figure class="rab" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/10328405/2a0000018ec8103f7887ff910a2a82328aab/XXL" alt="Фоторамки" loading="lazy"><span class="cena">250 &#8381;</span>
+      <figcaption class="txt"><b>Фоторамки</b><i>Размер 15x20</i></figcaption>
+    </figure>
+    <figure class="rab" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/11409713/2a0000018ec80fac96467e7274bb4edbe5a3/XXL" alt="Фотоальбомы" loading="lazy"><span class="cena">300 &#8381;</span>
+      <figcaption class="txt"><b>Фотоальбомы</b><i>На 100 фото 10x15</i></figcaption>
+    </figure>
+    <figure class="rab" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/11409713/2a0000018ec8104641c32879c59bc6448c5a/XXL" alt="Багет" loading="lazy">
+      <figcaption class="txt"><b>Багет</b><i>Оформление под заказ</i></figcaption>
+    </figure>
+    <figure class="rab" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/10328405/2a0000018ec81042dc6acdc0e4c4d04f4616/XXL" alt="Пленочные фотоаппараты" loading="lazy">
+      <figcaption class="txt"><b>Пленочные фотоаппараты</b><i>Коллекция в витрине</i></figcaption>
+    </figure>
+    <figure class="rab" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/11444509/2a0000018ec8103b185a33966237cc927cdb/XXL" alt="Копировальный центр" loading="lazy"><span class="cena">60 &#8381;</span>
+      <figcaption class="txt"><b>Копировальный центр</b><i>Цветная А4</i></figcaption>
+    </figure>
+    <figure class="rab" style="margin:0">
+      <img src="https://avatars.mds.yandex.net/get-altay/11908258/2a0000018ec810d7b5abfbe40cc11ad842ad/XXL" alt="Витрина на улице Роз" loading="lazy">
+      <figcaption class="txt"><b>Витрина на улице Роз</b><i>Заходите</i></figcaption>
+    </figure>
+  </div>
+</div></section>
+
+<section id="prays"><div class="ob">
+  <h2>Прайс целиком</h2>
+  <p class="pod">Все 74 услуг с ценами. Ничего не спрятано и не «по запросу».</p>
+  <input class="poisk" id="poisk" type="search" placeholder="Найти услугу: ламинирование, холст, визитки..." aria-label="Поиск по прайсу">
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Ксерокопия/Печать (На обычной бумаге)
+      <span class="vilka">20 - 120 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Ч\Б А4</span><span class="c">20 &#8381;</span></div>
+      <div class="str"><span>Ч\Б А3</span><span class="c">40 &#8381;</span></div>
+      <div class="str"><span>Цветная А4</span><span class="c">60 &#8381;</span></div>
+      <div class="str"><span>Цветная А3</span><span class="c">120 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Печать\Ксерокопия (Плотная бумага)
+      <span class="vilka">40 - 160 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Ч\Б А4</span><span class="c">40 &#8381;</span></div>
+      <div class="str"><span>Ч\Б А3</span><span class="c">80 &#8381;</span></div>
+      <div class="str"><span>Цветная А4</span><span class="c">80 &#8381;</span></div>
+      <div class="str"><span>Цветная А3</span><span class="c">160 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Фото на документы
+      <span class="vilka">500 - 550 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>4 шт</span><span class="c">500 &#8381;</span></div>
+      <div class="str"><span>6 шт</span><span class="c">550 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Календарь с вашим фото
+      <span class="vilka">300 - 3 100 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>10 на 15</span><span class="c">300 &#8381;</span></div>
+      <div class="str"><span>15 на 20</span><span class="c">400 &#8381;</span></div>
+      <div class="str"><span>21 на 30</span><span class="c">500 &#8381;</span></div>
+      <div class="str"><span>30 на 40</span><span class="c">600 &#8381;</span></div>
+      <div class="str"><span>А4</span><span class="c">2 550 &#8381;</span></div>
+      <div class="str"><span>А3</span><span class="c">3 100 &#8381;</span></div>
+      <div class="str"><span>Перекидной календарь А4</span><span class="c">2 550 &#8381;</span></div>
+      <div class="str"><span>Перекидной календарь А3</span><span class="c">3 100 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Печать фото на холсте (Холст + подрамник)
+      <span class="vilka">1 600 - 4 500 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>20*30</span><span class="c">1 600 &#8381;</span></div>
+      <div class="str"><span>30*30</span><span class="c">1 900 &#8381;</span></div>
+      <div class="str"><span>30*40</span><span class="c">2 300 &#8381;</span></div>
+      <div class="str"><span>40*40</span><span class="c">2 700 &#8381;</span></div>
+      <div class="str"><span>40*50</span><span class="c">3 100 &#8381;</span></div>
+      <div class="str"><span>40*60</span><span class="c">3 500 &#8381;</span></div>
+      <div class="str"><span>50*50</span><span class="c">3 500 &#8381;</span></div>
+      <div class="str"><span>50*60</span><span class="c">4 000 &#8381;</span></div>
+      <div class="str"><span>50*70</span><span class="c">4 500 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Печать фотографий
+      <span class="vilka">40 - 160 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>10*15</span><span class="c">40 &#8381;</span></div>
+      <div class="str"><span>15*20</span><span class="c">80 &#8381;</span></div>
+      <div class="str"><span>21*30</span><span class="c">160 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Фотопечать на кружках
+      <span class="vilka">650 - 950 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Кружка белая</span><span class="c">650 &#8381;</span></div>
+      <div class="str"><span>Кружка цветная</span><span class="c">700 &#8381;</span></div>
+      <div class="str"><span>Кружка с принтом внутри</span><span class="c">750 &#8381;</span></div>
+      <div class="str"><span>Кружка с блестками</span><span class="c">950 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Брелоки/магниты
+      <span class="vilka">200 - 350 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Брелоки/магниты</span><span class="c">200 &#8381;</span></div>
+      <div class="str"><span>Магнит большой</span><span class="c">250 &#8381;</span></div>
+      <div class="str"><span>Магнит с большой ножкой</span><span class="c">350 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Фотопечать на пазлах
+      <span class="vilka">1 100 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Формат 21*30</span><span class="c">1 100 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Оцифровка видеокассет
+      <span class="vilka">1 200 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Оцифровка видеокассет</span><span class="c">1 200 &#8381; <span class="prim">/час</span></span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Печать изображения на подушке
+      <span class="vilka">1 500 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Подушка 20*20</span><span class="c">1 500 &#8381;</span></div>
+      <div class="str"><span>Подушка 30*30</span><span class="c">1 500 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Печать фото на футболках
+      <span class="vilka">800 - 1 500 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Печать изображения на нашей футболке (формат А4)</span><span class="c">1 500 &#8381;</span></div>
+      <div class="str"><span>Печать изображения на футболку клиента (наклейка)</span><span class="c">800 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Широкофориатная печать
+      <span class="vilka">250 - 1 500 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>А3 (30*40) фотопечать</span><span class="c">350 &#8381;</span></div>
+      <div class="str"><span>А2 (420*594) фотопечать</span><span class="c">750 &#8381;</span></div>
+      <div class="str"><span>А2 (420*594) чертежи</span><span class="c">250 &#8381;</span></div>
+      <div class="str"><span>А1 (594*841) фотопечать</span><span class="c">1 500 &#8381;</span></div>
+      <div class="str"><span>А1 (594*841) чертежи</span><span class="c">500 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Ламинирование
+      <span class="vilka">30 - 140 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Ламинирование А6</span><span class="c">30 &#8381;</span></div>
+      <div class="str"><span>Ламинирование А5</span><span class="c">40 &#8381;</span></div>
+      <div class="str"><span>Ламинирование А4</span><span class="c">50 &#8381;</span></div>
+      <div class="str"><span>Ламинирование А3</span><span class="c">100 &#8381;</span></div>
+      <div class="str"><span>Ламинирование А4 МАТОВАЯ</span><span class="c">70 &#8381;</span></div>
+      <div class="str"><span>Ламинирование А3 МАТОВАЯ</span><span class="c">140 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Сканирование документов
+      <span class="vilka">25 - 250 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Сканирование А4</span><span class="c">25 &#8381;</span></div>
+      <div class="str"><span>Сканирование А3</span><span class="c">50 &#8381;</span></div>
+      <div class="str"><span>Сканирование большой</span><span class="c">250 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Брошюровка
+      <span class="vilka">450 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Брошюровка до 100 листов</span><span class="c">450 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Реставрация старых фото
+      <span class="vilka">500 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Реставрация старых фотографий</span><span class="c">500 &#8381; <span class="prim">+ печать</span></span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Печать визиток + макет
+      <span class="vilka">3 - 1 000 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Печать визиток (односторонние) - печать от 100 шт</span><span class="c">1 000 &#8381; <span class="prim">(срок изготовления в течении 1-го часа)</span></span></div>
+      <div class="str"><span>Дизайн-макет визитки (односторонние)</span><span class="c">500 &#8381;</span></div>
+      <div class="str"><span>Печать визиток (двухсторонние)</span><span class="c">3 &#8381; <span class="prim">/шт - от 1000 штук (срок изготовления 7-10 дней)</span></span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Дизайн-макет сертификатов/дипломов
+      <span class="vilka">500 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Дизайн-макет сертификатов/дипломов/благодарственных писем</span><span class="c">500 &#8381; <span class="prim">+ печать</span></span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Фоторамки
+      <span class="vilka">140 - 590 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Фоторамки 10*15 (в ассортименте)</span><span class="c">140 &#8381;</span></div>
+      <div class="str"><span>Фоторамки 15*20 (в ассортименте)</span><span class="c">250 &#8381;</span></div>
+      <div class="str"><span>Фоторамки 21*30 (в ассортименте)</span><span class="c">300 &#8381;</span></div>
+      <div class="str"><span>Фоторамки 30*40 (в ассортименте)</span><span class="c">590 &#8381;</span></div>
+      <div class="str"><span>Фоторамки нестандартные (в ассортименте)</span><span class="c">200 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Фотоальбомы
+      <span class="vilka">150 - 1 800 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Фотоальбом на 36 фото (10*15) в ассортименте</span><span class="c">150 &#8381;</span></div>
+      <div class="str"><span>Фотоальбом на 100 фото (10*15) в ассортименте</span><span class="c">300 &#8381;</span></div>
+      <div class="str"><span>Фотоальбом на 200 фото (10*15) в ассортименте</span><span class="c">1 100 &#8381;</span></div>
+      <div class="str"><span>Фотоальбом на 300 фото (10*15) в ассортименте</span><span class="c">1 800 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">Батарейки / аккумуляторы
+      <span class="vilka">25 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>Батарейки / аккумуляторы (в ассортименте)</span><span class="c">25 &#8381;</span></div>
+    </div>
+  </div>
+  <div class="grupp">
+    <h3><button type="button" aria-expanded="true">USB-накопитель / флешкарта
+      <span class="vilka">590 &#8381;</span></button></h3>
+    <div class="poz">
+      <div class="str"><span>USB-накопители / флешкарты (в ассортименте)</span><span class="c">590 &#8381;</span></div>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="ob ryad">
+  <div>
+    <b>Птичка</b>
+    Фотоцентр, копицентр, подарки и сувениры. Сочи.
+  </div>
+  <div>
+    <b>Связаться</b>
+    <a href="tel:+79882367036">+7 988 236-70-36</a><br>
+    <a href="https://wa.me/79882367036">WhatsApp</a>
+  </div>
+  <div>
+    <b>Адреса</b>
+    Курортный проспект, 75Б<br>
+    улица Роз, 78<br>
+    улица Горького, 56А
+  </div>
+</div></footer>
+
+<div class="snizu">
+  <a class="kn-gl" style="background:var(--krasn);color:#fff" href="https://wa.me/79882367036">WhatsApp</a>
+  <a style="background:var(--kart);border:1px solid var(--lin);color:var(--chern)" href="tel:+79882367036">Позвонить</a>
+</div>
+
+<script>
+// Раскрытие групп прайса. Все открыты по умолчанию: обещание "весь прайс
+// на странице" не должно расходиться с тем, что видно.
+document.querySelectorAll('.grupp button').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var otkryto = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', String(!otkryto));
+    b.parentElement.nextElementSibling.style.display = otkryto ? 'none' : '';
+  });
+});
+
+// Поиск по прайсу. Прячем строки, а группу целиком - если в ней ничего не нашлось.
+var pole = document.getElementById('poisk');
+if (pole) {
+  pole.addEventListener('input', function () {
+    var q = pole.value.trim().toLowerCase();
+    document.querySelectorAll('.grupp').forEach(function (g) {
+      var vidno = 0;
+      g.querySelectorAll('.str').forEach(function (s) {
+        var est = !q || s.textContent.toLowerCase().indexOf(q) > -1;
+        s.style.display = est ? '' : 'none';
+        if (est) vidno++;
+      });
+      var zag = g.querySelector('button').textContent.toLowerCase();
+      g.style.display = (vidno || (q && zag.indexOf(q) > -1)) ? '' : 'none';
+    });
+  });
+}
+</script>
+</body>
+</html>
