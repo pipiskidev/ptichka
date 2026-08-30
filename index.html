@@ -191,10 +191,10 @@
     padding-bottom:var(--e2);
     border-bottom:1px solid color-mix(in srgb,var(--tush) 14%,transparent); }
   .poz { display:flex; justify-content:space-between; gap:var(--e2);
-    align-items:baseline;
-    padding:14px 0; border-bottom:1px solid color-mix(in srgb,var(--tush) 8%,transparent);
-    transition:padding-left .2s, color .2s; }
-  .poz:hover { padding-left:var(--e1); color:var(--krasn); }
+    align-items:baseline; padding:11px 0;
+    border-top:1px solid color-mix(in srgb,var(--tush) 9%,transparent);
+    transition:padding-left .18s, color .18s; }
+  .poz:hover { padding-left:6px; color:var(--c, var(--krasn)); }
   .poz > span:first-child { min-width:0; }
   .poz .c { font-weight:700; white-space:nowrap; flex:0 0 auto; }
   .poz .prim { font-size:var(--melk); opacity:.45; font-weight:400; }
@@ -209,9 +209,29 @@
 
   /* Прайс: две колонки на широком экране, иначе 74 строки идут одной
      бесконечной лентой и добивают ощущение справочника. */
-  .prays-setka { columns:2; column-gap:var(--e6); }
-  @media (max-width:860px) { .prays-setka { columns:1; } }
-  .grup { break-inside:avoid; }
+
+  /* Пять семейств вместо двадцати трех списков подряд. У каждого свой цвет
+     и своя карточка - иначе прайс читается как одна бесконечная лента. */
+  .semya { margin-bottom:var(--e6); }
+  .semya-shapka { display:flex; align-items:baseline; gap:var(--e3);
+    padding-bottom:var(--e3); margin-bottom:var(--e4);
+    border-bottom:3px solid var(--c); }
+  .semya-shapka b { font-size:var(--melk); font-weight:800; color:var(--c);
+    font-variant-numeric:tabular-nums; }
+  .semya-shapka h3 { margin:0; font-size:clamp(24px,3.4vw,40px); font-weight:800;
+    letter-spacing:-.035em; line-height:1; }
+  .semya-shapka span { margin-left:auto; font-size:var(--melk); font-weight:700;
+    text-transform:uppercase; letter-spacing:.12em; opacity:.4; white-space:nowrap; }
+  .semya-setka { display:grid; gap:var(--e2);
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); }
+  .karta { background:color-mix(in srgb, var(--c) 6%, transparent);
+    border:1px solid color-mix(in srgb, var(--c) 22%, transparent);
+    border-radius:14px; padding:var(--e3) var(--e3) var(--e2);
+    break-inside:avoid; }
+  .karta h4 { margin:0 0 var(--e2); font-size:var(--melk); font-weight:700;
+    text-transform:uppercase; letter-spacing:.1em; color:var(--c);
+    display:flex; justify-content:space-between; gap:var(--e2); }
+  .karta h4 i { font-style:normal; opacity:.55; }
 
   footer { padding-top:var(--shag); padding-bottom:var(--e6);
     border-top:1px solid color-mix(in srgb,var(--tush) 12%,transparent); }
@@ -444,160 +464,203 @@
   <h2 class="zag">Весь прайс,<br>все <em>74 услуг</em>.</h2>
   <input class="poisk" id="poisk" type="search" placeholder="Найти: ламинирование, холст, визитки" aria-label="Поиск по прайсу">
   <div class="chipy">
-    <button class="chip" type="button" data-k="g40976">Ксерокопия/Печать (На обыч</button>
-    <button class="chip" type="button" data-k="g67354">Печать\Ксерокопия (Плотная</button>
-    <button class="chip" type="button" data-k="g23711">Фото на документы</button>
-    <button class="chip" type="button" data-k="g56114">Календарь с вашим фото</button>
-    <button class="chip" type="button" data-k="g50815">Печать фото на холсте (Хол</button>
-    <button class="chip" type="button" data-k="g86003">Печать фотографий</button>
-    <button class="chip" type="button" data-k="g88216">Фотопечать на кружках</button>
-    <button class="chip" type="button" data-k="g11326">Брелоки/магниты</button>
-    <button class="chip" type="button" data-k="g62792">Фотопечать на пазлах</button>
+    <button class="chip" type="button" data-k="g38552">Ксерокопия/Печать (На обыч</button>
+    <button class="chip" type="button" data-k="g77207">Печать\Ксерокопия (Плотная</button>
+    <button class="chip" type="button" data-k="g81120">Фото на документы</button>
+    <button class="chip" type="button" data-k="g20413">Календарь с вашим фото</button>
+    <button class="chip" type="button" data-k="g63246">Печать фото на холсте (Хол</button>
+    <button class="chip" type="button" data-k="g63396">Печать фотографий</button>
+    <button class="chip" type="button" data-k="g88406">Фотопечать на кружках</button>
+    <button class="chip" type="button" data-k="g98501">Брелоки/магниты</button>
+    <button class="chip" type="button" data-k="g17218">Фотопечать на пазлах</button>
   </div>
-  <div class="prays-setka">
-  <div class="grup" id="g40976">
-    <h3><span>Ксерокопия/Печать (На обычной бумаге)</span><span>4</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A7%5C%D0%91%20%D0%904%2C%2020%20%D1%80%D1%83%D0%B1"><span>Ч\Б А4</span><span class="c">20 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A7%5C%D0%91%20%D0%903%2C%2040%20%D1%80%D1%83%D0%B1"><span>Ч\Б А3</span><span class="c">40 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%904%2C%2060%20%D1%80%D1%83%D0%B1"><span>Цветная А4</span><span class="c">60 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%903%2C%20120%20%D1%80%D1%83%D0%B1"><span>Цветная А3</span><span class="c">120 &#8381;</span></a>
+  <div class="semya" style="--c:#c2410c">
+    <div class="semya-shapka">
+      <b>01</b>
+      <h3>Документы и копии</h3>
+      <span>25 позиций</span>
+    </div>
+    <div class="semya-setka">
+      <div class="karta" id="g38552">
+        <h4><span>Ксерокопия/Печать (На обычной бумаге)</span><i>4</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A7%5C%D0%91%20%D0%904%2C%2020%20%D1%80%D1%83%D0%B1"><span>Ч\Б А4</span><span class="c">20 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A7%5C%D0%91%20%D0%903%2C%2040%20%D1%80%D1%83%D0%B1"><span>Ч\Б А3</span><span class="c">40 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%904%2C%2060%20%D1%80%D1%83%D0%B1"><span>Цветная А4</span><span class="c">60 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%903%2C%20120%20%D1%80%D1%83%D0%B1"><span>Цветная А3</span><span class="c">120 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g77207">
+        <h4><span>Печать\Ксерокопия (Плотная бумага)</span><i>4</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A7%5C%D0%91%20%D0%904%2C%2040%20%D1%80%D1%83%D0%B1"><span>Ч\Б А4</span><span class="c">40 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A7%5C%D0%91%20%D0%903%2C%2080%20%D1%80%D1%83%D0%B1"><span>Ч\Б А3</span><span class="c">80 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%904%2C%2080%20%D1%80%D1%83%D0%B1"><span>Цветная А4</span><span class="c">80 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%903%2C%20160%20%D1%80%D1%83%D0%B1"><span>Цветная А3</span><span class="c">160 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g81120">
+        <h4><span>Фото на документы</span><i>2</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%204%20%D1%88%D1%82%2C%20500%20%D1%80%D1%83%D0%B1"><span>4 шт</span><span class="c">500 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%206%20%D1%88%D1%82%2C%20550%20%D1%80%D1%83%D0%B1"><span>6 шт</span><span class="c">550 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g20923">
+        <h4><span>Широкофориатная печать</span><i>5</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%903%20%2830%2A40%29%20%D1%84%D0%BE%D1%82%D0%BE%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C%2C%20350%20%D1%80%D1%83%D0%B1"><span>А3 (30*40) фотопечать</span><span class="c">350 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%902%20%28420%2A594%29%20%D1%84%D0%BE%D1%82%D0%BE%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C%2C%20750%20%D1%80%D1%83%D0%B1"><span>А2 (420*594) фотопечать</span><span class="c">750 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%902%20%28420%2A594%29%20%D1%87%D0%B5%D1%80%D1%82%D0%B5%D0%B6%D0%B8%2C%20250%20%D1%80%D1%83%D0%B1"><span>А2 (420*594) чертежи</span><span class="c">250 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%901%20%28594%2A841%29%20%D1%84%D0%BE%D1%82%D0%BE%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C%2C%201500%20%D1%80%D1%83%D0%B1"><span>А1 (594*841) фотопечать</span><span class="c">1 500 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%901%20%28594%2A841%29%20%D1%87%D0%B5%D1%80%D1%82%D0%B5%D0%B6%D0%B8%2C%20500%20%D1%80%D1%83%D0%B1"><span>А1 (594*841) чертежи</span><span class="c">500 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g39354">
+        <h4><span>Ламинирование</span><i>6</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%906%2C%2030%20%D1%80%D1%83%D0%B1"><span>Ламинирование А6</span><span class="c">30 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%905%2C%2040%20%D1%80%D1%83%D0%B1"><span>Ламинирование А5</span><span class="c">40 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%904%2C%2050%20%D1%80%D1%83%D0%B1"><span>Ламинирование А4</span><span class="c">50 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%903%2C%20100%20%D1%80%D1%83%D0%B1"><span>Ламинирование А3</span><span class="c">100 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%904%20%D0%9C%D0%90%D0%A2%D0%9E%D0%92%D0%90%D0%AF%2C%2070%20%D1%80%D1%83%D0%B1"><span>Ламинирование А4 МАТОВАЯ</span><span class="c">70 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%903%20%D0%9C%D0%90%D0%A2%D0%9E%D0%92%D0%90%D0%AF%2C%20140%20%D1%80%D1%83%D0%B1"><span>Ламинирование А3 МАТОВАЯ</span><span class="c">140 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g55107">
+        <h4><span>Сканирование документов</span><i>3</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A1%D0%BA%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%904%2C%2025%20%D1%80%D1%83%D0%B1"><span>Сканирование А4</span><span class="c">25 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A1%D0%BA%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%903%2C%2050%20%D1%80%D1%83%D0%B1"><span>Сканирование А3</span><span class="c">50 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A1%D0%BA%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9%2C%20250%20%D1%80%D1%83%D0%B1"><span>Сканирование большой</span><span class="c">250 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g30675">
+        <h4><span>Брошюровка</span><i>1</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%91%D1%80%D0%BE%D1%88%D1%8E%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%B4%D0%BE%20100%20%D0%BB%D0%B8%D1%81%D1%82%D0%BE%D0%B2%2C%20450%20%D1%80%D1%83%D0%B1"><span>Брошюровка до 100 листов</span><span class="c">450 &#8381;</span></a>
+      </div>
+    </div>
   </div>
-  <div class="grup" id="g67354">
-    <h3><span>Печать\Ксерокопия (Плотная бумага)</span><span>4</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A7%5C%D0%91%20%D0%904%2C%2040%20%D1%80%D1%83%D0%B1"><span>Ч\Б А4</span><span class="c">40 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A7%5C%D0%91%20%D0%903%2C%2080%20%D1%80%D1%83%D0%B1"><span>Ч\Б А3</span><span class="c">80 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%904%2C%2080%20%D1%80%D1%83%D0%B1"><span>Цветная А4</span><span class="c">80 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A6%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%20%D0%903%2C%20160%20%D1%80%D1%83%D0%B1"><span>Цветная А3</span><span class="c">160 &#8381;</span></a>
+  <div class="semya" style="--c:#1d6a5a">
+    <div class="semya-shapka">
+      <b>02</b>
+      <h3>Фотографии</h3>
+      <span>22 позиций</span>
+    </div>
+    <div class="semya-setka">
+      <div class="karta" id="g20413">
+        <h4><span>Календарь с вашим фото</span><i>8</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2010%20%D0%BD%D0%B0%2015%2C%20300%20%D1%80%D1%83%D0%B1"><span>10 на 15</span><span class="c">300 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2015%20%D0%BD%D0%B0%2020%2C%20400%20%D1%80%D1%83%D0%B1"><span>15 на 20</span><span class="c">400 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2021%20%D0%BD%D0%B0%2030%2C%20500%20%D1%80%D1%83%D0%B1"><span>21 на 30</span><span class="c">500 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2030%20%D0%BD%D0%B0%2040%2C%20600%20%D1%80%D1%83%D0%B1"><span>30 на 40</span><span class="c">600 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%904%2C%202550%20%D1%80%D1%83%D0%B1"><span>А4</span><span class="c">2 550 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%903%2C%203100%20%D1%80%D1%83%D0%B1"><span>А3</span><span class="c">3 100 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D0%B8%D0%B4%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C%20%D0%904%2C%202550%20%D1%80%D1%83%D0%B1"><span>Перекидной календарь А4</span><span class="c">2 550 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D0%B8%D0%B4%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C%20%D0%903%2C%203100%20%D1%80%D1%83%D0%B1"><span>Перекидной календарь А3</span><span class="c">3 100 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g63246">
+        <h4><span>Печать фото на холсте (Холст + подрамник)</span><i>9</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2020%2A30%2C%201600%20%D1%80%D1%83%D0%B1"><span>20*30</span><span class="c">1 600 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2030%2A30%2C%201900%20%D1%80%D1%83%D0%B1"><span>30*30</span><span class="c">1 900 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2030%2A40%2C%202300%20%D1%80%D1%83%D0%B1"><span>30*40</span><span class="c">2 300 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2040%2A40%2C%202700%20%D1%80%D1%83%D0%B1"><span>40*40</span><span class="c">2 700 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2040%2A50%2C%203100%20%D1%80%D1%83%D0%B1"><span>40*50</span><span class="c">3 100 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2040%2A60%2C%203500%20%D1%80%D1%83%D0%B1"><span>40*60</span><span class="c">3 500 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2050%2A50%2C%203500%20%D1%80%D1%83%D0%B1"><span>50*50</span><span class="c">3 500 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2050%2A60%2C%204000%20%D1%80%D1%83%D0%B1"><span>50*60</span><span class="c">4 000 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2050%2A70%2C%204500%20%D1%80%D1%83%D0%B1"><span>50*70</span><span class="c">4 500 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g63396">
+        <h4><span>Печать фотографий</span><i>3</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2010%2A15%2C%2040%20%D1%80%D1%83%D0%B1"><span>10*15</span><span class="c">40 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2015%2A20%2C%2080%20%D1%80%D1%83%D0%B1"><span>15*20</span><span class="c">80 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2021%2A30%2C%20160%20%D1%80%D1%83%D0%B1"><span>21*30</span><span class="c">160 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g22780">
+        <h4><span>Оцифровка видеокассет</span><i>1</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9E%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%81%D1%81%D0%B5%D1%82%2C%201200%20%D1%80%D1%83%D0%B1"><span>Оцифровка видеокассет</span><span class="c">1 200 &#8381; <span class="prim">/час</span></span></a>
+      </div>
+      <div class="karta" id="g2098">
+        <h4><span>Реставрация старых фото</span><i>1</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A0%D0%B5%D1%81%D1%82%D0%B0%D0%B2%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D1%82%D0%B0%D1%80%D1%8B%D1%85%20%D1%84%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%B9%2C%20500%20%D1%80%D1%83%D0%B1"><span>Реставрация старых фотографий</span><span class="c">500 &#8381; <span class="prim">+ печать</span></span></a>
+      </div>
+    </div>
   </div>
-  <div class="grup" id="g23711">
-    <h3><span>Фото на документы</span><span>2</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%204%20%D1%88%D1%82%2C%20500%20%D1%80%D1%83%D0%B1"><span>4 шт</span><span class="c">500 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%206%20%D1%88%D1%82%2C%20550%20%D1%80%D1%83%D0%B1"><span>6 шт</span><span class="c">550 &#8381;</span></a>
+  <div class="semya" style="--c:#a3336b">
+    <div class="semya-shapka">
+      <b>03</b>
+      <h3>Подарки и сувениры</h3>
+      <span>12 позиций</span>
+    </div>
+    <div class="semya-setka">
+      <div class="karta" id="g88406">
+        <h4><span>Фотопечать на кружках</span><i>4</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9A%D1%80%D1%83%D0%B6%D0%BA%D0%B0%20%D0%B1%D0%B5%D0%BB%D0%B0%D1%8F%2C%20650%20%D1%80%D1%83%D0%B1"><span>Кружка белая</span><span class="c">650 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9A%D1%80%D1%83%D0%B6%D0%BA%D0%B0%20%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%2C%20700%20%D1%80%D1%83%D0%B1"><span>Кружка цветная</span><span class="c">700 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9A%D1%80%D1%83%D0%B6%D0%BA%D0%B0%20%D1%81%20%D0%BF%D1%80%D0%B8%D0%BD%D1%82%D0%BE%D0%BC%20%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B8%2C%20750%20%D1%80%D1%83%D0%B1"><span>Кружка с принтом внутри</span><span class="c">750 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9A%D1%80%D1%83%D0%B6%D0%BA%D0%B0%20%D1%81%20%D0%B1%D0%BB%D0%B5%D1%81%D1%82%D0%BA%D0%B0%D0%BC%D0%B8%2C%20950%20%D1%80%D1%83%D0%B1"><span>Кружка с блестками</span><span class="c">950 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g98501">
+        <h4><span>Брелоки/магниты</span><i>3</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%91%D1%80%D0%B5%D0%BB%D0%BE%D0%BA%D0%B8/%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D1%8B%2C%20200%20%D1%80%D1%83%D0%B1"><span>Брелоки/магниты</span><span class="c">200 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9%2C%20250%20%D1%80%D1%83%D0%B1"><span>Магнит большой</span><span class="c">250 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%20%D1%81%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9%20%D0%BD%D0%BE%D0%B6%D0%BA%D0%BE%D0%B9%2C%20350%20%D1%80%D1%83%D0%B1"><span>Магнит с большой ножкой</span><span class="c">350 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g17218">
+        <h4><span>Фотопечать на пазлах</span><i>1</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82%2021%2A30%2C%201100%20%D1%80%D1%83%D0%B1"><span>Формат 21*30</span><span class="c">1 100 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g93124">
+        <h4><span>Печать изображения на подушке</span><i>2</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0%2020%2A20%2C%201500%20%D1%80%D1%83%D0%B1"><span>Подушка 20*20</span><span class="c">1 500 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0%2030%2A30%2C%201500%20%D1%80%D1%83%D0%B1"><span>Подушка 30*30</span><span class="c">1 500 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g97221">
+        <h4><span>Печать фото на футболках</span><i>2</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%20%D0%BD%D0%B0%D1%88%D0%B5%D0%B9%20%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B5%20%28%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%20%D0%904%29%2C%201500%20%D1%80%D1%83%D0%B1"><span>Печать изображения на нашей футболке (формат А4)</span><span class="c">1 500 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%20%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D1%83%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0%20%28%D0%BD%D0%B0%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B0%29%2C%20800%20%D1%80%D1%83%D0%B1"><span>Печать изображения на футболку клиента (наклейка)</span><span class="c">800 &#8381;</span></a>
+      </div>
+    </div>
   </div>
-  <div class="grup" id="g56114">
-    <h3><span>Календарь с вашим фото</span><span>8</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2010%20%D0%BD%D0%B0%2015%2C%20300%20%D1%80%D1%83%D0%B1"><span>10 на 15</span><span class="c">300 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2015%20%D0%BD%D0%B0%2020%2C%20400%20%D1%80%D1%83%D0%B1"><span>15 на 20</span><span class="c">400 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2021%20%D0%BD%D0%B0%2030%2C%20500%20%D1%80%D1%83%D0%B1"><span>21 на 30</span><span class="c">500 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2030%20%D0%BD%D0%B0%2040%2C%20600%20%D1%80%D1%83%D0%B1"><span>30 на 40</span><span class="c">600 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%904%2C%202550%20%D1%80%D1%83%D0%B1"><span>А4</span><span class="c">2 550 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%903%2C%203100%20%D1%80%D1%83%D0%B1"><span>А3</span><span class="c">3 100 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D0%B8%D0%B4%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C%20%D0%904%2C%202550%20%D1%80%D1%83%D0%B1"><span>Перекидной календарь А4</span><span class="c">2 550 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%80%D0%B5%D0%BA%D0%B8%D0%B4%D0%BD%D0%BE%D0%B9%20%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C%20%D0%903%2C%203100%20%D1%80%D1%83%D0%B1"><span>Перекидной календарь А3</span><span class="c">3 100 &#8381;</span></a>
+  <div class="semya" style="--c:#7a5a10">
+    <div class="semya-shapka">
+      <b>04</b>
+      <h3>Рамки и альбомы</h3>
+      <span>9 позиций</span>
+    </div>
+    <div class="semya-setka">
+      <div class="karta" id="g51495">
+        <h4><span>Фоторамки</span><i>5</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%2010%2A15%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20140%20%D1%80%D1%83%D0%B1"><span>Фоторамки 10*15 (в ассортименте)</span><span class="c">140 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%2015%2A20%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20250%20%D1%80%D1%83%D0%B1"><span>Фоторамки 15*20 (в ассортименте)</span><span class="c">250 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%2021%2A30%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20300%20%D1%80%D1%83%D0%B1"><span>Фоторамки 21*30 (в ассортименте)</span><span class="c">300 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%2030%2A40%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20590%20%D1%80%D1%83%D0%B1"><span>Фоторамки 30*40 (в ассортименте)</span><span class="c">590 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%20%D0%BD%D0%B5%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20200%20%D1%80%D1%83%D0%B1"><span>Фоторамки нестандартные (в ассортименте)</span><span class="c">200 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g15260">
+        <h4><span>Фотоальбомы</span><i>4</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%20%D0%BD%D0%B0%2036%20%D1%84%D0%BE%D1%82%D0%BE%20%2810%2A15%29%20%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%2C%20150%20%D1%80%D1%83%D0%B1"><span>Фотоальбом на 36 фото (10*15) в ассортименте</span><span class="c">150 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%20%D0%BD%D0%B0%20100%20%D1%84%D0%BE%D1%82%D0%BE%20%2810%2A15%29%20%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%2C%20300%20%D1%80%D1%83%D0%B1"><span>Фотоальбом на 100 фото (10*15) в ассортименте</span><span class="c">300 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%20%D0%BD%D0%B0%20200%20%D1%84%D0%BE%D1%82%D0%BE%20%2810%2A15%29%20%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%2C%201100%20%D1%80%D1%83%D0%B1"><span>Фотоальбом на 200 фото (10*15) в ассортименте</span><span class="c">1 100 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%20%D0%BD%D0%B0%20300%20%D1%84%D0%BE%D1%82%D0%BE%20%2810%2A15%29%20%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%2C%201800%20%D1%80%D1%83%D0%B1"><span>Фотоальбом на 300 фото (10*15) в ассортименте</span><span class="c">1 800 &#8381;</span></a>
+      </div>
+    </div>
   </div>
-  <div class="grup" id="g50815">
-    <h3><span>Печать фото на холсте (Холст + подрамник)</span><span>9</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2020%2A30%2C%201600%20%D1%80%D1%83%D0%B1"><span>20*30</span><span class="c">1 600 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2030%2A30%2C%201900%20%D1%80%D1%83%D0%B1"><span>30*30</span><span class="c">1 900 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2030%2A40%2C%202300%20%D1%80%D1%83%D0%B1"><span>30*40</span><span class="c">2 300 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2040%2A40%2C%202700%20%D1%80%D1%83%D0%B1"><span>40*40</span><span class="c">2 700 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2040%2A50%2C%203100%20%D1%80%D1%83%D0%B1"><span>40*50</span><span class="c">3 100 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2040%2A60%2C%203500%20%D1%80%D1%83%D0%B1"><span>40*60</span><span class="c">3 500 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2050%2A50%2C%203500%20%D1%80%D1%83%D0%B1"><span>50*50</span><span class="c">3 500 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2050%2A60%2C%204000%20%D1%80%D1%83%D0%B1"><span>50*60</span><span class="c">4 000 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2050%2A70%2C%204500%20%D1%80%D1%83%D0%B1"><span>50*70</span><span class="c">4 500 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g86003">
-    <h3><span>Печать фотографий</span><span>3</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2010%2A15%2C%2040%20%D1%80%D1%83%D0%B1"><span>10*15</span><span class="c">40 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2015%2A20%2C%2080%20%D1%80%D1%83%D0%B1"><span>15*20</span><span class="c">80 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%2021%2A30%2C%20160%20%D1%80%D1%83%D0%B1"><span>21*30</span><span class="c">160 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g88216">
-    <h3><span>Фотопечать на кружках</span><span>4</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9A%D1%80%D1%83%D0%B6%D0%BA%D0%B0%20%D0%B1%D0%B5%D0%BB%D0%B0%D1%8F%2C%20650%20%D1%80%D1%83%D0%B1"><span>Кружка белая</span><span class="c">650 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9A%D1%80%D1%83%D0%B6%D0%BA%D0%B0%20%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D0%B0%D1%8F%2C%20700%20%D1%80%D1%83%D0%B1"><span>Кружка цветная</span><span class="c">700 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9A%D1%80%D1%83%D0%B6%D0%BA%D0%B0%20%D1%81%20%D0%BF%D1%80%D0%B8%D0%BD%D1%82%D0%BE%D0%BC%20%D0%B2%D0%BD%D1%83%D1%82%D1%80%D0%B8%2C%20750%20%D1%80%D1%83%D0%B1"><span>Кружка с принтом внутри</span><span class="c">750 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9A%D1%80%D1%83%D0%B6%D0%BA%D0%B0%20%D1%81%20%D0%B1%D0%BB%D0%B5%D1%81%D1%82%D0%BA%D0%B0%D0%BC%D0%B8%2C%20950%20%D1%80%D1%83%D0%B1"><span>Кружка с блестками</span><span class="c">950 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g11326">
-    <h3><span>Брелоки/магниты</span><span>3</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%91%D1%80%D0%B5%D0%BB%D0%BE%D0%BA%D0%B8/%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D1%8B%2C%20200%20%D1%80%D1%83%D0%B1"><span>Брелоки/магниты</span><span class="c">200 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9%2C%20250%20%D1%80%D1%83%D0%B1"><span>Магнит большой</span><span class="c">250 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9C%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%20%D1%81%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9%20%D0%BD%D0%BE%D0%B6%D0%BA%D0%BE%D0%B9%2C%20350%20%D1%80%D1%83%D0%B1"><span>Магнит с большой ножкой</span><span class="c">350 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g62792">
-    <h3><span>Фотопечать на пазлах</span><span>1</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82%2021%2A30%2C%201100%20%D1%80%D1%83%D0%B1"><span>Формат 21*30</span><span class="c">1 100 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g2351">
-    <h3><span>Оцифровка видеокассет</span><span>1</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9E%D1%86%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%B0%D1%81%D1%81%D0%B5%D1%82%2C%201200%20%D1%80%D1%83%D0%B1"><span>Оцифровка видеокассет</span><span class="c">1 200 &#8381; <span class="prim">/час</span></span></a>
-  </div>
-  <div class="grup" id="g88610">
-    <h3><span>Печать изображения на подушке</span><span>2</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0%2020%2A20%2C%201500%20%D1%80%D1%83%D0%B1"><span>Подушка 20*20</span><span class="c">1 500 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%BE%D0%B4%D1%83%D1%88%D0%BA%D0%B0%2030%2A30%2C%201500%20%D1%80%D1%83%D0%B1"><span>Подушка 30*30</span><span class="c">1 500 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g22001">
-    <h3><span>Печать фото на футболках</span><span>2</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%20%D0%BD%D0%B0%D1%88%D0%B5%D0%B9%20%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B5%20%28%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%20%D0%904%29%2C%201500%20%D1%80%D1%83%D0%B1"><span>Печать изображения на нашей футболке (формат А4)</span><span class="c">1 500 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BD%D0%B0%20%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D1%83%20%D0%BA%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0%20%28%D0%BD%D0%B0%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B0%29%2C%20800%20%D1%80%D1%83%D0%B1"><span>Печать изображения на футболку клиента (наклейка)</span><span class="c">800 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g93417">
-    <h3><span>Широкофориатная печать</span><span>5</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%903%20%2830%2A40%29%20%D1%84%D0%BE%D1%82%D0%BE%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C%2C%20350%20%D1%80%D1%83%D0%B1"><span>А3 (30*40) фотопечать</span><span class="c">350 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%902%20%28420%2A594%29%20%D1%84%D0%BE%D1%82%D0%BE%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C%2C%20750%20%D1%80%D1%83%D0%B1"><span>А2 (420*594) фотопечать</span><span class="c">750 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%902%20%28420%2A594%29%20%D1%87%D0%B5%D1%80%D1%82%D0%B5%D0%B6%D0%B8%2C%20250%20%D1%80%D1%83%D0%B1"><span>А2 (420*594) чертежи</span><span class="c">250 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%901%20%28594%2A841%29%20%D1%84%D0%BE%D1%82%D0%BE%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C%2C%201500%20%D1%80%D1%83%D0%B1"><span>А1 (594*841) фотопечать</span><span class="c">1 500 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%901%20%28594%2A841%29%20%D1%87%D0%B5%D1%80%D1%82%D0%B5%D0%B6%D0%B8%2C%20500%20%D1%80%D1%83%D0%B1"><span>А1 (594*841) чертежи</span><span class="c">500 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g11718">
-    <h3><span>Ламинирование</span><span>6</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%906%2C%2030%20%D1%80%D1%83%D0%B1"><span>Ламинирование А6</span><span class="c">30 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%905%2C%2040%20%D1%80%D1%83%D0%B1"><span>Ламинирование А5</span><span class="c">40 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%904%2C%2050%20%D1%80%D1%83%D0%B1"><span>Ламинирование А4</span><span class="c">50 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%903%2C%20100%20%D1%80%D1%83%D0%B1"><span>Ламинирование А3</span><span class="c">100 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%904%20%D0%9C%D0%90%D0%A2%D0%9E%D0%92%D0%90%D0%AF%2C%2070%20%D1%80%D1%83%D0%B1"><span>Ламинирование А4 МАТОВАЯ</span><span class="c">70 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9B%D0%B0%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%903%20%D0%9C%D0%90%D0%A2%D0%9E%D0%92%D0%90%D0%AF%2C%20140%20%D1%80%D1%83%D0%B1"><span>Ламинирование А3 МАТОВАЯ</span><span class="c">140 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g82746">
-    <h3><span>Сканирование документов</span><span>3</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A1%D0%BA%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%904%2C%2025%20%D1%80%D1%83%D0%B1"><span>Сканирование А4</span><span class="c">25 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A1%D0%BA%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%903%2C%2050%20%D1%80%D1%83%D0%B1"><span>Сканирование А3</span><span class="c">50 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A1%D0%BA%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9%2C%20250%20%D1%80%D1%83%D0%B1"><span>Сканирование большой</span><span class="c">250 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g51917">
-    <h3><span>Брошюровка</span><span>1</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%91%D1%80%D0%BE%D1%88%D1%8E%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%B4%D0%BE%20100%20%D0%BB%D0%B8%D1%81%D1%82%D0%BE%D0%B2%2C%20450%20%D1%80%D1%83%D0%B1"><span>Брошюровка до 100 листов</span><span class="c">450 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g85366">
-    <h3><span>Реставрация старых фото</span><span>1</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A0%D0%B5%D1%81%D1%82%D0%B0%D0%B2%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20%D1%81%D1%82%D0%B0%D1%80%D1%8B%D1%85%20%D1%84%D0%BE%D1%82%D0%BE%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%B9%2C%20500%20%D1%80%D1%83%D0%B1"><span>Реставрация старых фотографий</span><span class="c">500 &#8381; <span class="prim">+ печать</span></span></a>
-  </div>
-  <div class="grup" id="g23007">
-    <h3><span>Печать визиток + макет</span><span>3</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BE%D0%BA%20%28%D0%BE%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B8%D0%B5%29%20-%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%BE%D1%82%20100%20%D1%88%D1%82%2C%201000%20%D1%80%D1%83%D0%B1"><span>Печать визиток (односторонние) - печать от 100 шт</span><span class="c">1 000 &#8381; <span class="prim">(срок изготовления в течении 1-го часа)</span></span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%BC%D0%B0%D0%BA%D0%B5%D1%82%20%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B8%20%28%D0%BE%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B8%D0%B5%29%2C%20500%20%D1%80%D1%83%D0%B1"><span>Дизайн-макет визитки (односторонние)</span><span class="c">500 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BE%D0%BA%20%28%D0%B4%D0%B2%D1%83%D1%85%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B8%D0%B5%29%2C%203%20%D1%80%D1%83%D0%B1"><span>Печать визиток (двухсторонние)</span><span class="c">3 &#8381; <span class="prim">/шт - от 1000 штук (срок изготовления 7-10 дней)</span></span></a>
-  </div>
-  <div class="grup" id="g96454">
-    <h3><span>Дизайн-макет сертификатов/дипломов</span><span>1</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%BC%D0%B0%D0%BA%D0%B5%D1%82%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D0%B2/%D0%B4%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%D0%BE%D0%B2/%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B8%D1%81%D0%B5%D0%BC%2C%20500%20%D1%80%D1%83%D0%B1"><span>Дизайн-макет сертификатов/дипломов/благодарственных писем</span><span class="c">500 &#8381; <span class="prim">+ печать</span></span></a>
-  </div>
-  <div class="grup" id="g87044">
-    <h3><span>Фоторамки</span><span>5</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%2010%2A15%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20140%20%D1%80%D1%83%D0%B1"><span>Фоторамки 10*15 (в ассортименте)</span><span class="c">140 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%2015%2A20%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20250%20%D1%80%D1%83%D0%B1"><span>Фоторамки 15*20 (в ассортименте)</span><span class="c">250 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%2021%2A30%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20300%20%D1%80%D1%83%D0%B1"><span>Фоторамки 21*30 (в ассортименте)</span><span class="c">300 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%2030%2A40%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20590%20%D1%80%D1%83%D0%B1"><span>Фоторамки 30*40 (в ассортименте)</span><span class="c">590 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D1%80%D0%B0%D0%BC%D0%BA%D0%B8%20%D0%BD%D0%B5%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D1%8B%D0%B5%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20200%20%D1%80%D1%83%D0%B1"><span>Фоторамки нестандартные (в ассортименте)</span><span class="c">200 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g34742">
-    <h3><span>Фотоальбомы</span><span>4</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%20%D0%BD%D0%B0%2036%20%D1%84%D0%BE%D1%82%D0%BE%20%2810%2A15%29%20%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%2C%20150%20%D1%80%D1%83%D0%B1"><span>Фотоальбом на 36 фото (10*15) в ассортименте</span><span class="c">150 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%20%D0%BD%D0%B0%20100%20%D1%84%D0%BE%D1%82%D0%BE%20%2810%2A15%29%20%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%2C%20300%20%D1%80%D1%83%D0%B1"><span>Фотоальбом на 100 фото (10*15) в ассортименте</span><span class="c">300 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%20%D0%BD%D0%B0%20200%20%D1%84%D0%BE%D1%82%D0%BE%20%2810%2A15%29%20%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%2C%201100%20%D1%80%D1%83%D0%B1"><span>Фотоальбом на 200 фото (10*15) в ассортименте</span><span class="c">1 100 &#8381;</span></a>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%A4%D0%BE%D1%82%D0%BE%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%20%D0%BD%D0%B0%20300%20%D1%84%D0%BE%D1%82%D0%BE%20%2810%2A15%29%20%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%2C%201800%20%D1%80%D1%83%D0%B1"><span>Фотоальбом на 300 фото (10*15) в ассортименте</span><span class="c">1 800 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g50263">
-    <h3><span>Батарейки / аккумуляторы</span><span>1</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%91%D0%B0%D1%82%D0%B0%D1%80%D0%B5%D0%B9%D0%BA%D0%B8%20/%20%D0%B0%D0%BA%D0%BA%D1%83%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%8B%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%2025%20%D1%80%D1%83%D0%B1"><span>Батарейки / аккумуляторы (в ассортименте)</span><span class="c">25 &#8381;</span></a>
-  </div>
-  <div class="grup" id="g23160">
-    <h3><span>USB-накопитель / флешкарта</span><span>1</span></h3>
-    <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20USB-%D0%BD%D0%B0%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D0%BB%D0%B8%20/%20%D1%84%D0%BB%D0%B5%D1%88%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20590%20%D1%80%D1%83%D0%B1"><span>USB-накопители / флешкарты (в ассортименте)</span><span class="c">590 &#8381;</span></a>
-  </div>
+  <div class="semya" style="--c:#3f5b8c">
+    <div class="semya-shapka">
+      <b>05</b>
+      <h3>Полиграфия и мелочи</h3>
+      <span>6 позиций</span>
+    </div>
+    <div class="semya-setka">
+      <div class="karta" id="g41937">
+        <h4><span>Печать визиток + макет</span><i>3</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BE%D0%BA%20%28%D0%BE%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B8%D0%B5%29%20-%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%BE%D1%82%20100%20%D1%88%D1%82%2C%201000%20%D1%80%D1%83%D0%B1"><span>Печать визиток (односторонние) - печать от 100 шт</span><span class="c">1 000 &#8381; <span class="prim">(срок изготовления в течении 1-го часа)</span></span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%BC%D0%B0%D0%BA%D0%B5%D1%82%20%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B8%20%28%D0%BE%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B8%D0%B5%29%2C%20500%20%D1%80%D1%83%D0%B1"><span>Дизайн-макет визитки (односторонние)</span><span class="c">500 &#8381;</span></a>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C%20%D0%B2%D0%B8%D0%B7%D0%B8%D1%82%D0%BE%D0%BA%20%28%D0%B4%D0%B2%D1%83%D1%85%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B8%D0%B5%29%2C%203%20%D1%80%D1%83%D0%B1"><span>Печать визиток (двухсторонние)</span><span class="c">3 &#8381; <span class="prim">/шт - от 1000 штук (срок изготовления 7-10 дней)</span></span></a>
+      </div>
+      <div class="karta" id="g90231">
+        <h4><span>Дизайн-макет сертификатов/дипломов</span><i>1</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%BC%D0%B0%D0%BA%D0%B5%D1%82%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D0%B2/%D0%B4%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%D0%BE%D0%B2/%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D1%85%20%D0%BF%D0%B8%D1%81%D0%B5%D0%BC%2C%20500%20%D1%80%D1%83%D0%B1"><span>Дизайн-макет сертификатов/дипломов/благодарственных писем</span><span class="c">500 &#8381; <span class="prim">+ печать</span></span></a>
+      </div>
+      <div class="karta" id="g10730">
+        <h4><span>Батарейки / аккумуляторы</span><i>1</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20%D0%91%D0%B0%D1%82%D0%B0%D1%80%D0%B5%D0%B9%D0%BA%D0%B8%20/%20%D0%B0%D0%BA%D0%BA%D1%83%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%8B%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%2025%20%D1%80%D1%83%D0%B1"><span>Батарейки / аккумуляторы (в ассортименте)</span><span class="c">25 &#8381;</span></a>
+      </div>
+      <div class="karta" id="g62602">
+        <h4><span>USB-накопитель / флешкарта</span><i>1</i></h4>
+        <a class="poz" href="https://wa.me/79882367036?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%3A%20USB-%D0%BD%D0%B0%D0%BA%D0%BE%D0%BF%D0%B8%D1%82%D0%B5%D0%BB%D0%B8%20/%20%D1%84%D0%BB%D0%B5%D1%88%D0%BA%D0%B0%D1%80%D1%82%D1%8B%20%28%D0%B2%20%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%B5%29%2C%20590%20%D1%80%D1%83%D0%B1"><span>USB-накопители / флешкарты (в ассортименте)</span><span class="c">590 &#8381;</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
